@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -273,11 +273,14 @@ html[data-lang="ta"] .nav-share-item{font-family:var(--font-tamil);font-weight:6
   position:relative;overflow:hidden;
 }
 .hero-grid{
-  max-width:var(--max);width:100%;
-  display:grid;grid-template-columns:1.05fr 0.95fr;
-  gap:3rem;align-items:center;position:relative;
+  max-width:760px;width:100%;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  gap:2rem;position:relative;
 }
-@media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:1.5rem;text-align:center}.hero-meta-row{justify-content:center}}
+.hero-text{display:flex;flex-direction:column;align-items:center}
+.hero-bio{margin-inline:auto}
+.hero-eyebrow,.hero-meta-row{justify-content:center}
+@media(max-width:880px){.hero-grid{gap:1.5rem}.hero-meta-row{justify-content:center}}
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:0.8rem;
   font-family:var(--font-display);
@@ -314,6 +317,7 @@ html[data-lang="ta"] .hero h1{font-family:var(--font-tamil);font-style:normal;fo
   font-size:1.05rem;color:var(--fg-2);
   font-weight:300;max-width:520px;line-height:1.8;
   margin-bottom:2.4rem;
+  text-wrap:pretty;
 }
 html[data-lang="ta"] .hero-bio{font-family:var(--font-tamil);font-weight:400}
 @media(max-width:880px){.hero-bio{margin-inline:auto}}
@@ -321,9 +325,9 @@ html[data-lang="ta"] .hero-bio{font-family:var(--font-tamil);font-weight:400}
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:0;margin:2rem 0 2.4rem;max-width:620px;
-  border:1.5px solid var(--accent);
+  border:1.5px solid var(--line-accent);
   border-radius:22px;
-  background:linear-gradient(180deg,rgba(226,165,116,0.12),rgba(226,165,116,0.04));
+  background:linear-gradient(180deg,rgba(226,165,116,0.10),rgba(226,165,116,0.03));
   backdrop-filter:blur(8px);
   overflow:hidden;
   box-shadow:
@@ -331,11 +335,11 @@ html[data-lang="ta"] .hero-bio{font-family:var(--font-tamil);font-weight:400}
     0 0 60px rgba(226,165,116,0.18),
     inset 0 1px 0 rgba(255,255,255,0.06);
   position:relative;
-  animation:heroStatGlow 4s ease-in-out infinite alternate;
+  animation:heroStatGlow 6s ease-in-out infinite alternate;
 }
 @keyframes heroStatGlow{
-  0%{box-shadow:0 12px 40px rgba(0,0,0,0.35),0 0 60px rgba(226,165,116,0.18),inset 0 1px 0 rgba(255,255,255,0.06)}
-  100%{box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 80px rgba(226,165,116,0.28),inset 0 1px 0 rgba(255,255,255,0.06)}
+  0%{box-shadow:0 12px 40px rgba(0,0,0,0.32),0 0 48px rgba(226,165,116,0.12),inset 0 1px 0 rgba(255,255,255,0.06)}
+  100%{box-shadow:0 12px 40px rgba(0,0,0,0.36),0 0 60px rgba(226,165,116,0.2),inset 0 1px 0 rgba(255,255,255,0.06)}
 }
 [data-theme="light"] .hero-meta-row{background:linear-gradient(180deg,rgba(184,122,77,0.10),rgba(184,122,77,0.03));border-color:var(--accent);box-shadow:0 12px 40px rgba(26,18,8,0.08),0 0 60px rgba(184,122,77,0.18)}
 .hero-stat{padding:1.6rem 0.9rem 1.4rem;text-align:center;border-right:1px solid rgba(226,165,116,0.3);position:relative;transition:background 360ms var(--ease)}
@@ -450,6 +454,7 @@ html[data-lang="ta"] .eyebrow{font-family:var(--font-tamil);letter-spacing:0.06e
   font-size:clamp(2.4rem,5.5vw,4rem);
   line-height:1.05;letter-spacing:-0.01em;
   color:var(--fg);margin-bottom:1.2rem;
+  text-wrap:balance;
 }
 html[data-lang="ta"] .section-title{font-family:var(--font-tamil);font-weight:700}
 .section-title em{font-style:italic;color:var(--accent)}
@@ -459,8 +464,17 @@ html[data-lang="ta"] .section-title em{font-style:normal;font-weight:700}
   font-size:1.02rem;font-weight:300;
   color:var(--fg-2);line-height:1.8;
   max-width:580px;margin:0 auto;
+  text-wrap:pretty;
 }
 html[data-lang="ta"] .section-sub{font-family:var(--font-tamil);font-weight:400}
+
+/* ── ORNAMENTAL TEMPLE DIVIDER ── */
+.om-divider{display:flex;align-items:center;justify-content:center;gap:clamp(0.9rem,3vw,1.8rem);max-width:var(--max);margin:0 auto;padding:1.5rem var(--gutter)}
+.om-divider .l{height:1px;flex:1;max-width:240px;background:linear-gradient(90deg,transparent,var(--line-accent) 55%,transparent)}
+.om-divider .orn{width:34px;height:34px;color:var(--accent);flex-shrink:0;opacity:0.92;filter:drop-shadow(0 0 10px var(--accent-glow))}
+.om-divider .orn .pet{opacity:0.85}
+.om-divider .orn .ring{opacity:0.4}
+@media(max-width:560px){.om-divider .l{max-width:90px}}
 
 /* BIRTH DETAILS */
 .details-grid{
@@ -612,6 +626,99 @@ html[data-lang="ta"] .rasi-stat-k{font-family:var(--font-tamil);letter-spacing:0
 .rasi-stat-v{font-family:var(--font-serif);font-size:1.1rem;color:var(--fg);font-weight:500}
 html[data-lang="ta"] .rasi-stat-v{font-family:var(--font-tamil);font-weight:600}
 
+/* ── TRADITIONAL SOUTH-INDIAN RASI KATTAM ── */
+.rasi-layout{display:grid;grid-template-columns:1.05fr 0.95fr;gap:2.6rem;align-items:center;max-width:1080px;margin:0 auto}
+@media(max-width:920px){.rasi-layout{grid-template-columns:1fr;gap:2.4rem}}
+.kattam-wrap{position:relative}
+.kattam-caption{font-family:var(--font-display);font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--fg-3);text-align:center;margin-bottom:1.1rem}
+html[data-lang="ta"] .kattam-caption{font-family:var(--font-tamil);letter-spacing:0.04em;text-transform:none;font-size:0.9rem;font-weight:600}
+.kattam{
+  width:100%;max-width:480px;margin:0 auto;
+  aspect-ratio:1/1;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:repeat(4,1fr);
+  background:
+    linear-gradient(180deg,rgba(226,165,116,0.06),transparent),
+    color-mix(in srgb,var(--bg) 80%,transparent);
+  border:2px solid var(--accent);
+  border-radius:4px;
+  overflow:hidden;
+  box-shadow:0 18px 50px rgba(0,0,0,0.4),0 0 70px rgba(226,165,116,0.12),inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+[data-theme="light"] .kattam{box-shadow:0 18px 50px rgba(26,18,8,0.12),0 0 50px rgba(184,122,77,0.14)}
+.kattam-cell{
+  border:1px solid var(--line);
+  padding:0.55rem 0.5rem 0.4rem;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:flex-start;gap:0.25rem;
+  min-width:0;
+  transition:background 320ms var(--ease);
+}
+.kattam-cell:hover{background:var(--bg-card-hover)}
+.kattam-cell .gly{position:absolute;right:5px;bottom:1px;font-family:var(--font-serif);font-size:2rem;line-height:1;color:var(--fg);opacity:0.08;pointer-events:none;z-index:1}
+.kattam-cell .rn{font-family:var(--font-tamil);font-size:0.82rem;font-weight:600;color:var(--fg-2);line-height:1.15;position:relative;z-index:2}
+.kattam-cell .re{font-family:var(--font-display);font-size:0.54rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-4);position:relative;z-index:2}
+html[data-lang="ta"] .kattam-cell .re{display:none}
+.kattam-cell .pin{
+  display:inline-flex;align-items:center;gap:3px;align-self:flex-start;
+  font-family:var(--font-display);font-size:0.6rem;font-weight:700;letter-spacing:0.04em;
+  color:#fff;background:var(--accent);padding:2px 7px;border-radius:999px;
+  position:relative;z-index:2;margin-top:auto;
+  box-shadow:0 0 12px var(--accent-glow);
+}
+html[data-lang="ta"] .kattam-cell .pin{font-family:var(--font-tamil);font-weight:700;font-size:0.66rem}
+.kattam-cell .pin.moon{background:var(--accent-deep)}
+.kattam-cell.occ{background:rgba(226,165,116,0.10)}
+.kattam-cell.occ .rn{color:var(--accent-soft)}
+[data-theme="light"] .kattam-cell.occ .rn{color:var(--accent-deep)}
+.kattam-cell.lagna{box-shadow:inset 0 0 0 2px var(--accent)}
+.kattam-center{
+  grid-column:2 / 4;grid-row:2 / 4;
+  border:1px solid var(--line);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.3rem;
+  background:radial-gradient(circle at 50% 45%,rgba(226,165,116,0.16),transparent 72%);
+  position:relative;
+}
+.kattam-center .om{font-family:var(--font-tamil);font-size:1.7rem;color:var(--accent);line-height:1;text-shadow:0 0 22px var(--accent-glow)}
+.kattam-center .ttl{font-family:var(--font-serif);font-style:italic;font-size:1.15rem;color:var(--fg);line-height:1.1}
+html[data-lang="ta"] .kattam-center .ttl{font-family:var(--font-tamil);font-style:normal;font-weight:700}
+.kattam-center .sttl{font-family:var(--font-display);font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-3)}
+html[data-lang="ta"] .kattam-center .sttl{font-family:var(--font-tamil);letter-spacing:0.04em;text-transform:none;font-size:0.72rem;font-weight:600}
+.kattam-legend{display:flex;flex-wrap:wrap;gap:0.6rem 1.4rem;justify-content:center;margin-top:1.4rem}
+.kattam-legend .li{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-display);font-size:0.78rem;color:var(--fg-3)}
+html[data-lang="ta"] .kattam-legend .li{font-family:var(--font-tamil);font-weight:500}
+.kattam-legend .dot{width:11px;height:11px;border-radius:999px;background:var(--accent);box-shadow:0 0 8px var(--accent-glow)}
+.kattam-legend .dot.moon{background:var(--accent-deep)}
+
+/* THREE-CHART GRID */
+.charts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.6rem 2.8rem;max-width:1040px;margin:0 auto}
+@media(max-width:860px){.charts-grid{grid-template-columns:1fr;gap:3rem;max-width:480px}}
+.chart-block .kattam-cell{justify-content:flex-start;gap:0.25rem;padding:0.5rem 0.45rem 0.45rem}
+.chart-block .kattam-cell .rn{font-size:0.7rem}
+.chart-block .kattam-cell .re{font-size:0.5rem}
+.kattam-cell .planets{display:flex;flex-wrap:wrap;gap:3px;position:relative;z-index:2;margin-top:auto;padding-top:3px}
+.pl{
+  display:inline-flex;align-items:center;
+  font-family:var(--font-display);font-size:0.58rem;font-weight:700;letter-spacing:0.01em;
+  color:var(--accent-soft);background:rgba(226,165,116,0.16);
+  border:1px solid var(--line-accent);
+  padding:1px 5px;border-radius:6px;line-height:1.35;white-space:nowrap;
+}
+html[data-lang="ta"] .pl{font-family:var(--font-tamil);font-weight:700;font-size:0.62rem}
+[data-theme="light"] .pl{color:var(--accent-deep)}
+.pl.lagnam{color:#fff;background:var(--accent);border-color:transparent;box-shadow:0 0 10px var(--accent-glow)}
+.pl.moon{color:#fff;background:var(--accent-deep);border-color:transparent}
+.kattam-cell.has-lagnam{box-shadow:inset 0 0 0 2px var(--accent)}
+.kattam-cell.has-planet{background:rgba(226,165,116,0.07)}
+.chart-foot{font-family:var(--font-display);font-size:0.74rem;color:var(--fg-4);text-align:center;margin-top:0.85rem;line-height:1.6}
+html[data-lang="ta"] .chart-foot{font-family:var(--font-tamil)}
+.planet-key{display:flex;flex-wrap:wrap;gap:0.55rem 0.75rem;justify-content:center;max-width:780px;margin:2.2rem auto 0}
+.planet-key .pk{display:inline-flex;align-items:center;gap:0.42rem;font-family:var(--font-display);font-size:0.78rem;color:var(--fg-3)}
+html[data-lang="ta"] .planet-key .pk{font-family:var(--font-tamil)}
+.planet-key .pk b{font-family:var(--font-display);font-weight:700;color:var(--accent-soft);background:rgba(226,165,116,0.16);border:1px solid var(--line-accent);border-radius:5px;padding:0 5px;font-size:0.66rem}
+[data-theme="light"] .planet-key .pk b{color:var(--accent-deep)}
+
 /* ZODIAC WALL (legacy — kept for safety, not used) */
 .zodiac-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.2rem 0.8rem}
 @media(max-width:1000px){.zodiac-grid{grid-template-columns:repeat(4,1fr)}}
@@ -760,7 +867,7 @@ html[data-lang="ta"] .foot-quote{font-family:var(--font-tamil);font-style:normal
   .stars,.stars-twinkle,.aura-1,.aura-2,.contact-moon,.hero-art-aura{display:none!important}
   .nav,.share-buttons,.share-link-row,.btn-arrow,.hero-cta-row{display:none!important}
   .hero{min-height:auto;padding:1.5rem 1.5rem 1rem;page-break-after:avoid}
-  .hero-grid{grid-template-columns:1.4fr 1fr;gap:1.5rem;text-align:left}
+  .hero-grid{display:flex;flex-direction:column;gap:1.5rem;text-align:center;max-width:none}
   .hero-art-wrap{max-width:220px;animation:none;justify-self:end}
   .hero-art-svg{filter:none!important}
   .hill-silhouette,.temple-silhouette{fill:#1a1208!important}
@@ -819,6 +926,26 @@ html[data-lang="ta"] .foot-quote{font-family:var(--font-tamil);font-style:normal
   .rasi-stat{padding:0.5rem!important;border-color:#d4c697!important;background:#fff!important}
   .rasi-stat-k{color:#8a7a5e!important;font-size:0.58rem!important}
   .rasi-stat-v{color:#1a1208!important;font-size:0.78rem!important}
+  /* RASI KATTAM — print */
+  .rasi-layout{grid-template-columns:1fr 1fr!important;gap:0.8rem!important;align-items:center!important}
+  .kattam-caption{color:#8a7a5e!important;font-size:0.62rem!important;margin-bottom:0.4rem!important}
+  .kattam{border-color:#b87a4d!important;box-shadow:none!important;background:#fff!important;max-width:none!important}
+  .kattam-cell{border-color:#d4c697!important;padding:0.3rem!important}
+  .kattam-cell .rn{color:#1a1208!important;font-size:0.66rem!important}
+  .kattam-cell .re{color:#8a7a5e!important;font-size:0.46rem!important}
+  .kattam-cell .gly{color:#1a1208!important;opacity:0.1!important;font-size:1.3rem!important}
+  .kattam-cell.occ{background:#f3e6cf!important}
+  .kattam-cell.lagna{box-shadow:inset 0 0 0 1.5px #b87a4d!important}
+  .kattam-cell .pin{background:#b87a4d!important;color:#fff!important;font-size:0.5rem!important;box-shadow:none!important;padding:1px 5px!important}
+  .kattam-cell .pin.moon{background:#8b4d2a!important}
+  .kattam-center{border-color:#d4c697!important;background:#faf3e4!important}
+  .kattam-center .om{color:#b87a4d!important;text-shadow:none!important;font-size:1.2rem!important}
+  .kattam-center .ttl{color:#1a1208!important;font-size:0.9rem!important}
+  .kattam-center .sttl{color:#8a7a5e!important;font-size:0.46rem!important}
+  .kattam-legend{margin-top:0.5rem!important;gap:0.3rem 0.9rem!important}
+  .kattam-legend .li{color:#6b5c44!important;font-size:0.6rem!important}
+  .kattam-legend .dot{background:#b87a4d!important;box-shadow:none!important;width:8px!important;height:8px!important}
+  .kattam-legend .dot.moon{background:#8b4d2a!important}
   /* ZODIAC WALL (legacy) */
   .zod{padding:0.4rem 0.2rem!important}
   .zod .blot{width:60px!important;height:60px!important;margin-bottom:0.2rem!important}
@@ -943,356 +1070,10 @@ html[data-lang="ta"] .foot-quote{font-family:var(--font-tamil);font-style:normal
         <a href="#contact" class="btn btn-ghost" data-en="Get in Touch" data-ta="தொடர்பு கொள்ள">Get in Touch</a>
       </div>
     </div>
-    <div class="hero-art-wrap">
-      <div class="hero-art-aura"></div>
-      <svg class="hero-art-svg" viewBox="0 0 400 400" aria-hidden="true">
-        <defs>
-          <!-- Layered twilight sky -->
-          <linearGradient id="twilightSky" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stop-color="rgba(8,8,28,0.5)"/>
-            <stop offset="30%" stop-color="rgba(30,18,55,0.32)"/>
-            <stop offset="60%" stop-color="rgba(120,65,45,0.20)"/>
-            <stop offset="85%" stop-color="rgba(226,165,116,0.26)"/>
-            <stop offset="100%" stop-color="rgba(226,165,116,0.10)"/>
-          </linearGradient>
-          <!-- Horizon glow (sunset behind hill) -->
-          <radialGradient id="horizonGlow" cx="50%" cy="100%" r="65%">
-            <stop offset="0%" stop-color="rgba(255,180,90,0.55)"/>
-            <stop offset="35%" stop-color="rgba(226,165,116,0.22)"/>
-            <stop offset="100%" stop-color="rgba(226,165,116,0)"/>
-          </radialGradient>
-          <!-- Hill body gradient — deeper than pure black for subtle volume -->
-          <linearGradient id="hillGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stop-color="#070710"/>
-            <stop offset="55%" stop-color="#0a0a14"/>
-            <stop offset="100%" stop-color="#05050c"/>
-          </linearGradient>
-          <!-- Deepam outer halo -->
-          <radialGradient id="deepam" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(255,230,160,1)"/>
-            <stop offset="25%" stop-color="rgba(255,180,90,0.75)"/>
-            <stop offset="55%" stop-color="rgba(226,110,50,0.28)"/>
-            <stop offset="100%" stop-color="rgba(226,90,30,0)"/>
-          </radialGradient>
-          <!-- Deepam core (white-hot center) -->
-          <radialGradient id="deepamCore" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#ffffff"/>
-            <stop offset="45%" stop-color="#fff8dc"/>
-            <stop offset="80%" stop-color="#ffd27a"/>
-            <stop offset="100%" stop-color="rgba(255,210,122,0)"/>
-          </radialGradient>
-          <!-- Hill base warm spill from temple lights -->
-          <radialGradient id="hillBaseGlow" cx="50%" cy="100%" r="55%">
-            <stop offset="0%" stop-color="rgba(255,170,80,0.55)"/>
-            <stop offset="55%" stop-color="rgba(226,165,116,0.16)"/>
-            <stop offset="100%" stop-color="rgba(226,165,116,0)"/>
-          </radialGradient>
-          <!-- Pond / temple tank reflection -->
-          <linearGradient id="pond" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stop-color="rgba(8,8,18,0.92)"/>
-            <stop offset="55%" stop-color="rgba(14,12,24,0.7)"/>
-            <stop offset="100%" stop-color="rgba(20,15,30,0.35)"/>
-          </linearGradient>
-          <linearGradient id="groundMist" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stop-color="rgba(226,165,116,0)"/>
-            <stop offset="65%" stop-color="rgba(226,165,116,0.18)"/>
-            <stop offset="100%" stop-color="rgba(226,165,116,0.06)"/>
-          </linearGradient>
-          <filter id="flameBlur" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="1.8"/>
-          </filter>
-        </defs>
-
-        <!-- ── SKY ── -->
-        <rect x="0" y="0" width="400" height="360" fill="url(#twilightSky)"/>
-        <ellipse cx="200" cy="350" rx="260" ry="85" fill="url(#horizonGlow)"/>
-
-        <!-- Deepam halo (behind hill, radiates from peak) -->
-        <circle class="deepam-halo" cx="200" cy="200" r="72" fill="url(#deepam)" opacity="0.55"/>
-        <circle class="deepam-halo" cx="200" cy="200" r="38" fill="url(#deepam)" opacity="0.85"/>
-
-        <!-- ── BACKGROUND STARS ── -->
-        <g class="bg-stars">
-          <circle cx="35" cy="38" r="0.9" fill="#fff" opacity="0.85"/>
-          <circle cx="68" cy="22" r="0.6" fill="#fff" opacity="0.65"/>
-          <circle cx="92" cy="48" r="0.7" fill="#fff" opacity="0.75"/>
-          <circle cx="135" cy="34" r="0.5" fill="#fff" opacity="0.55"/>
-          <circle cx="115" cy="68" r="0.6" fill="#fff" opacity="0.65"/>
-          <circle cx="58" cy="95" r="0.7" fill="#fff" opacity="0.7"/>
-          <circle cx="28" cy="138" r="0.5" fill="#fff" opacity="0.55"/>
-          <circle cx="50" cy="180" r="0.6" fill="#fff" opacity="0.6"/>
-          <circle cx="78" cy="250" r="0.4" fill="#fff" opacity="0.45"/>
-          <circle cx="252" cy="35" r="0.7" fill="#fff" opacity="0.75"/>
-          <circle cx="285" cy="50" r="0.5" fill="#fff" opacity="0.55"/>
-          <circle cx="345" cy="40" r="0.9" fill="#fff" opacity="0.85"/>
-          <circle cx="378" cy="68" r="0.6" fill="#fff" opacity="0.65"/>
-          <circle cx="358" cy="118" r="0.7" fill="#fff" opacity="0.7"/>
-          <circle cx="385" cy="158" r="0.5" fill="#fff" opacity="0.55"/>
-          <circle cx="370" cy="208" r="0.6" fill="#fff" opacity="0.6"/>
-          <circle cx="382" cy="245" r="0.5" fill="#fff" opacity="0.5"/>
-          <!-- Shooting star -->
-          <line x1="320" y1="58" x2="346" y2="44" stroke="rgba(255,255,255,0.45)" stroke-width="0.6" stroke-linecap="round"/>
-        </g>
-
-        <!-- ── LEO CONSTELLATION (சிம்ம ராசி) ──
-             Sickle + triangle. Regulus = heart of the lion, brightest. -->
-        <g class="leo-line">
-          <path d="M 280 90 L 305 70 L 325 95 L 320 135 L 295 165 L 260 185"/>
-          <path d="M 260 185 L 200 175 L 145 130"/>
-          <path d="M 145 130 L 80 110 L 200 175 Z"/>
-        </g>
-        <!-- Regulus α (heart) -->
-        <g class="leo-star bright">
-          <circle cx="260" cy="185" r="4.5" fill="#fff8e6"/>
-          <circle cx="260" cy="185" r="2" fill="#fff"/>
-          <path d="M260 178 L260 192 M253 185 L267 185" stroke="#fff8e6" stroke-width="0.6" opacity="0.65"/>
-        </g>
-        <!-- Denebola β (tail) -->
-        <g class="leo-star bright-2">
-          <circle cx="80" cy="110" r="3.2" fill="#fff8e6"/>
-          <circle cx="80" cy="110" r="1.4" fill="#fff"/>
-          <path d="M80 104 L80 116 M74 110 L86 110" stroke="#fff8e6" stroke-width="0.5" opacity="0.55"/>
-        </g>
-        <!-- Algieba γ -->
-        <g class="leo-star bright-3">
-          <circle cx="320" cy="135" r="3" fill="#fff8e6"/>
-          <circle cx="320" cy="135" r="1.2" fill="#fff"/>
-        </g>
-        <circle class="leo-star" cx="145" cy="130" r="2.6" fill="#fff8e6"/>
-        <circle cx="145" cy="130" r="1" fill="#fff"/>
-        <circle class="leo-star" cx="200" cy="175" r="2.4" fill="#fff8e6"/>
-        <circle cx="200" cy="175" r="0.9" fill="#fff"/>
-        <circle class="leo-star" cx="325" cy="95" r="2.2" fill="#fff8e6"/>
-        <circle cx="325" cy="95" r="0.9" fill="#fff"/>
-        <circle class="leo-star" cx="305" cy="70" r="2.2" fill="#fff8e6"/>
-        <circle cx="305" cy="70" r="0.9" fill="#fff"/>
-        <circle class="leo-star" cx="280" cy="90" r="2.6" fill="#fff8e6"/>
-        <circle cx="280" cy="90" r="1" fill="#fff"/>
-        <circle class="leo-star" cx="295" cy="165" r="1.6" fill="#fff8e6"/>
-
-        <text class="constellation-label" x="200" y="50" text-anchor="middle">SIMMAM · சிம்மம் · LEO</text>
-        <text class="leo-label" x="272" y="187" dominant-baseline="middle">REGULUS</text>
-
-        <!-- Subtle horizon haze -->
-        <rect x="0" y="280" width="400" height="80" fill="url(#groundMist)" opacity="0.22"/>
-
-        <!-- ── DISTANT MOUNTAIN LAYERS (atmospheric depth) ── -->
-        <path opacity="0.25" fill="#0a0a14"
-              d="M -10 348 L 55 340 L 110 334 L 165 330 L 215 332 L 270 336 L 325 340 L 410 344 L 410 360 L -10 360 Z"/>
-        <path opacity="0.45" fill="#070710"
-              d="M -10 360 L 40 352 L 85 345 L 130 340 L 175 343 L 215 346 L 260 342 L 305 338 L 350 340 L 410 344 L 410 372 L -10 372 Z"/>
-
-        <!-- ── ARUNACHALA SUBTLE OUTLINE GLOW (jyotirlinga aura) ── -->
-        <path opacity="0.22" fill="none" stroke="rgba(255,180,90,0.45)" stroke-width="1.6"
-              d="M 100 332 C 118 318, 138 292, 158 264 C 175 240, 188 218, 198 205 L 200 200 L 202 205 C 215 222, 228 244, 242 264 C 256 283, 274 300, 295 316 C 312 326, 328 332, 345 338"/>
-
-        <!-- ── MAIN ARUNACHALA PEAK ── -->
-        <path fill="url(#hillGrad)"
-              d="M -10 372
-                 L 22 364 L 52 354 L 80 344 L 102 332 L 122 318
-                 C 140 302, 154 282, 166 260
-                 C 178 238, 188 218, 196 205
-                 L 198 200 L 200 198 L 202 200 L 204 205
-                 C 214 220, 224 240, 234 258
-                 C 246 276, 260 294, 274 308
-                 C 290 320, 308 328, 326 335
-                 L 354 343 L 384 350 L 410 356
-                 L 410 410 L -10 410 Z"/>
-
-        <!-- Rock face shadow strokes (right flank, in shadow) -->
-        <g opacity="0.55">
-          <path stroke="rgba(0,0,0,0.65)" stroke-width="0.55" fill="none" stroke-linecap="round"
-                d="M 213 215 L 226 234"/>
-          <path stroke="rgba(0,0,0,0.6)" stroke-width="0.5" fill="none" stroke-linecap="round"
-                d="M 232 248 L 246 268"/>
-          <path stroke="rgba(0,0,0,0.55)" stroke-width="0.5" fill="none" stroke-linecap="round"
-                d="M 252 280 L 268 295"/>
-          <path stroke="rgba(0,0,0,0.5)" stroke-width="0.45" fill="none" stroke-linecap="round"
-                d="M 274 305 L 290 318"/>
-        </g>
-        <!-- Light-catching strokes (left flank, faintly lit by horizon) -->
-        <g opacity="0.7">
-          <path stroke="rgba(255,180,100,0.22)" stroke-width="0.55" fill="none" stroke-linecap="round"
-                d="M 122 314 C 138 298, 156 274, 176 246"/>
-          <path stroke="rgba(255,180,100,0.14)" stroke-width="0.45" fill="none" stroke-linecap="round"
-                d="M 108 324 C 124 314, 145 290, 162 264"/>
-          <path stroke="rgba(255,180,100,0.10)" stroke-width="0.4" fill="none" stroke-linecap="round"
-                d="M 88 336 C 105 326, 128 304, 148 280"/>
-        </g>
-        <!-- Bright rim line catching last light along left ridge -->
-        <path opacity="0.85" fill="none" stroke="rgba(255,210,140,0.40)" stroke-width="0.7" stroke-linecap="round"
-              d="M 130 308 C 145 290, 162 264, 180 235 C 188 222, 194 212, 198 203"/>
-
-        <!-- Hill base warm spill -->
-        <ellipse cx="200" cy="365" rx="220" ry="26" fill="url(#hillBaseGlow)"/>
-
-        <!-- Ground mist over base -->
-        <rect x="0" y="350" width="400" height="58" fill="url(#groundMist)" opacity="0.6"/>
-
-        <!-- ── KARTHIGAI DEEPAM at the peak ── -->
-        <!-- Radiating golden rays from peak (subtle) -->
-        <g class="deepam-rays" opacity="0.55">
-          <g stroke="#ffd27a" stroke-width="0.45" stroke-linecap="round" opacity="0.55">
-            <line x1="200" y1="195" x2="200" y2="148"/>
-            <line x1="200" y1="195" x2="172" y2="166"/>
-            <line x1="200" y1="195" x2="228" y2="166"/>
-            <line x1="200" y1="195" x2="155" y2="190"/>
-            <line x1="200" y1="195" x2="245" y2="190"/>
-            <line x1="200" y1="195" x2="185" y2="175"/>
-            <line x1="200" y1="195" x2="215" y2="175"/>
-          </g>
-        </g>
-
-        <!-- Soft deepam core glow (over peak) -->
-        <circle cx="200" cy="202" r="18" fill="url(#deepamCore)" opacity="0.92" filter="url(#flameBlur)"/>
-
-        <!-- Flame (three layers) -->
-        <g class="deepam-flame">
-          <path d="M 200 188
-                   C 192 194, 190 202, 192 209
-                   C 195 214, 199 215, 200 213
-                   C 201 215, 205 214, 208 209
-                   C 210 202, 208 194, 200 188 Z"
-                fill="#ff9c3a" opacity="0.85"/>
-          <path d="M 200 192
-                   C 195 197, 193 203, 195 208
-                   C 197 211, 200 212, 200 210
-                   C 200 212, 203 211, 205 208
-                   C 207 203, 205 197, 200 192 Z"
-                fill="#ffd27a"/>
-          <path d="M 200 196
-                   C 197 200, 196 204, 197 206
-                   C 199 208, 200 209, 200 207
-                   C 200 209, 201 208, 203 206
-                   C 204 204, 203 200, 200 196 Z"
-                fill="#fff8dc"/>
-          <ellipse cx="200" cy="200" rx="1.1" ry="1.6" fill="#ffffff"/>
-        </g>
-
-        <!-- ── ANNAMALAIYAR TEMPLE COMPLEX ── -->
-        <!-- Main East Rajagopuram (tallest, central, 8-tier Dravidian) -->
-        <g class="temple-silhouette">
-          <rect x="178" y="356" width="44" height="14"/>
-          <path d="M 195 370 L 195 363 Q 200 358, 205 363 L 205 370 Z" fill="#05050c"/>
-          <path d="M 176 356 L 180 351 L 220 351 L 224 356 Z"/>
-          <path d="M 180 351 L 183 346 L 217 346 L 220 351 Z"/>
-          <path d="M 183 346 L 185 342 L 215 342 L 217 346 Z"/>
-          <path d="M 185 342 L 187 338 L 213 338 L 215 342 Z"/>
-          <path d="M 187 338 L 189 334 L 211 334 L 213 338 Z"/>
-          <path d="M 189 334 L 191 330 L 209 330 L 211 334 Z"/>
-          <path d="M 191 330 L 193 326 L 207 326 L 209 330 Z"/>
-          <path d="M 193 326 L 195 322 L 205 322 L 207 326 Z"/>
-          <path d="M 195 322 Q 200 313, 205 322 Z"/>
-          <!-- Kalasams (finials) -->
-          <circle cx="196" cy="321" r="0.8"/>
-          <circle cx="204" cy="321" r="0.8"/>
-          <rect x="199.4" y="305" width="1.2" height="9"/>
-          <circle cx="200" cy="306" r="1.3"/>
-          <circle cx="200" cy="303" r="0.8"/>
-          <circle cx="200" cy="300" r="0.6"/>
-        </g>
-
-        <!-- South gopuram -->
-        <g class="temple-silhouette" opacity="0.95">
-          <rect x="244" y="358" width="20" height="12"/>
-          <path d="M 245 358 L 247 352 L 261 352 L 263 358 Z"/>
-          <path d="M 247 352 L 249 347 L 259 347 L 261 352 Z"/>
-          <path d="M 249 347 L 250 343 L 258 343 L 259 347 Z"/>
-          <path d="M 250 343 L 251.5 339 L 256.5 339 L 258 343 Z"/>
-          <path d="M 251.5 339 Q 254 333, 256.5 339 Z"/>
-          <rect x="253.4" y="328" width="1.2" height="6"/>
-          <circle cx="254" cy="328" r="0.7"/>
-        </g>
-
-        <!-- North gopuram -->
-        <g class="temple-silhouette" opacity="0.92">
-          <rect x="138" y="359" width="18" height="11"/>
-          <path d="M 139 359 L 141 353 L 153 353 L 155 359 Z"/>
-          <path d="M 141 353 L 143 348 L 151 348 L 153 353 Z"/>
-          <path d="M 143 348 L 144 344 L 150 344 L 151 348 Z"/>
-          <path d="M 144 344 Q 147 339, 150 344 Z"/>
-          <rect x="146.4" y="333" width="1.2" height="6"/>
-          <circle cx="147" cy="333" r="0.6"/>
-        </g>
-
-        <!-- Small far-right gopuram -->
-        <g class="temple-silhouette" opacity="0.78">
-          <rect x="295" y="362" width="12" height="8"/>
-          <path d="M 296 362 L 297 357 L 305 357 L 306 362 Z"/>
-          <path d="M 297 357 L 298 353 L 304 353 L 305 357 Z"/>
-          <path d="M 298 353 Q 301 349, 304 353 Z"/>
-          <rect x="300.4" y="344" width="1.2" height="4"/>
-        </g>
-
-        <!-- Prakara wall connecting suggestion -->
-        <path stroke="rgba(255,160,80,0.10)" stroke-width="0.4" fill="none"
-              d="M 156 367 L 178 367 M 222 367 L 244 367 M 264 367 L 295 367"/>
-
-        <!-- ── TEMPLE LAMPS (warm dots) ── -->
-        <g class="lamps">
-          <!-- Main gopuram -->
-          <circle cx="182" cy="364" r="1" fill="#ffd27a" opacity="1"/>
-          <circle cx="190" cy="364" r="0.7" fill="#ffc97a" opacity="0.9"/>
-          <circle cx="200" cy="367" r="1.3" fill="#fff0c4" opacity="1"/>
-          <circle cx="210" cy="364" r="0.7" fill="#ffc97a" opacity="0.9"/>
-          <circle cx="218" cy="364" r="1" fill="#ffd27a" opacity="1"/>
-          <!-- South gopuram -->
-          <circle cx="248" cy="366" r="0.7" fill="#ffc97a" opacity="0.9"/>
-          <circle cx="254" cy="366" r="0.65" fill="#ffc97a" opacity="0.85"/>
-          <circle cx="260" cy="366" r="0.7" fill="#ffc97a" opacity="0.9"/>
-          <!-- North gopuram -->
-          <circle cx="142" cy="367" r="0.65" fill="#ffc97a" opacity="0.85"/>
-          <circle cx="148" cy="367" r="0.7" fill="#ffc97a" opacity="0.9"/>
-          <circle cx="153" cy="367" r="0.6" fill="#ffc97a" opacity="0.8"/>
-          <!-- Far -->
-          <circle cx="299" cy="368" r="0.55" fill="#ffc97a" opacity="0.75"/>
-          <circle cx="303" cy="368" r="0.55" fill="#ffc97a" opacity="0.75"/>
-          <!-- Pradakshina path (giri valam) faint lamp trail -->
-          <circle cx="40" cy="378" r="0.4" fill="#ffc97a" opacity="0.55"/>
-          <circle cx="65" cy="375" r="0.4" fill="#ffc97a" opacity="0.55"/>
-          <circle cx="90" cy="373" r="0.4" fill="#ffc97a" opacity="0.55"/>
-          <circle cx="115" cy="372" r="0.35" fill="#ffc97a" opacity="0.5"/>
-          <circle cx="278" cy="370" r="0.4" fill="#ffc97a" opacity="0.55"/>
-          <circle cx="312" cy="372" r="0.4" fill="#ffc97a" opacity="0.55"/>
-          <circle cx="345" cy="375" r="0.4" fill="#ffc97a" opacity="0.5"/>
-          <circle cx="370" cy="378" r="0.35" fill="#ffc97a" opacity="0.45"/>
-        </g>
-
-        <!-- ── FOREGROUND ELEMENTS ── -->
-        <!-- Left palm tree silhouette -->
-        <g opacity="0.85" fill="#05050c">
-          <rect x="22" y="370" width="2" height="40"/>
-          <path d="M 23 372 Q 14 365, 8 358 Q 15 361, 22 366 Q 17 358, 14 350 Q 20 358, 24 366 Q 28 358, 32 350 Q 30 358, 26 366 Q 32 361, 38 358 Q 34 365, 25 372 Z"/>
-        </g>
-        <!-- Right tree silhouette (banyan-style) -->
-        <g opacity="0.85" fill="#05050c">
-          <rect x="376" y="378" width="3" height="32"/>
-          <ellipse cx="377" cy="378" rx="14" ry="20"/>
-          <ellipse cx="386" cy="383" rx="8" ry="12"/>
-          <ellipse cx="370" cy="385" rx="7" ry="10"/>
-        </g>
-
-        <!-- ── POND / TEMPLE TANK reflection ── -->
-        <rect x="0" y="388" width="400" height="22" fill="url(#pond)"/>
-        <!-- Water shimmer of temple lights -->
-        <g opacity="0.5">
-          <ellipse cx="200" cy="392" rx="7" ry="0.55" fill="#fff0c4"/>
-          <ellipse cx="200" cy="396" rx="4.5" ry="0.4" fill="#ffd27a"/>
-          <ellipse cx="200" cy="400" rx="2.5" ry="0.35" fill="#ffd27a"/>
-          <ellipse cx="254" cy="394" rx="2.6" ry="0.4" fill="#ffc97a"/>
-          <ellipse cx="254" cy="398" rx="1.6" ry="0.3" fill="#ffc97a"/>
-          <ellipse cx="148" cy="394" rx="2.6" ry="0.4" fill="#ffc97a"/>
-          <ellipse cx="148" cy="398" rx="1.6" ry="0.3" fill="#ffc97a"/>
-        </g>
-        <!-- Tiny inverted flame reflection -->
-        <ellipse cx="200" cy="395" rx="1.6" ry="2.6" fill="rgba(255,210,122,0.35)"/>
-
-        <!-- Place label -->
-        <text class="place-label" x="200" y="408" text-anchor="middle">ARUNACHALA · TIRUVANNAMALAI · 12.23°N 79.07°E</text>
-      </svg>
-    </div>
   </div>
 </section>
+
+<div class="om-divider reveal" aria-hidden="true"><span class="l"></span><svg class="orn" viewBox="0 0 48 48" fill="none"><circle class="ring" cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1"/><g class="pet" fill="currentColor"><path d="M24 6c2.6 3.4 2.6 8.6 0 12-2.6-3.4-2.6-8.6 0-12Z"/><path d="M24 42c2.6-3.4 2.6-8.6 0-12-2.6 3.4-2.6 8.6 0 12Z"/><path d="M6 24c3.4 2.6 8.6 2.6 12 0-3.4-2.6-8.6-2.6-12 0Z"/><path d="M42 24c-3.4 2.6-8.6 2.6-12 0 3.4-2.6 8.6-2.6 12 0Z"/><path d="M11.3 11.3c4 1.3 7.7 5 9 9-4-1.3-7.7-5-9-9Z"/><path d="M36.7 36.7c-4-1.3-7.7-5-9-9 4 1.3 7.7 5 9 9Z"/><path d="M36.7 11.3c-1.3 4-5 7.7-9 9 1.3-4 5-7.7 9-9Z"/><path d="M11.3 36.7c1.3-4 5-7.7 9-9-1.3 4-5 7.7-9 9Z"/></g><circle cx="24" cy="24" r="3" fill="currentColor"/></svg><span class="l"></span></div>
 
 <!-- BIRTH DETAILS -->
 <section class="section" id="chart">
@@ -1375,6 +1156,8 @@ html[data-lang="ta"] .foot-quote{font-family:var(--font-tamil);font-style:normal
   </div>
 </section>
 
+<div class="om-divider reveal" aria-hidden="true"><span class="l"></span><svg class="orn" viewBox="0 0 48 48" fill="none"><circle class="ring" cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1"/><g class="pet" fill="currentColor"><path d="M24 6c2.6 3.4 2.6 8.6 0 12-2.6-3.4-2.6-8.6 0-12Z"/><path d="M24 42c2.6-3.4 2.6-8.6 0-12-2.6 3.4-2.6 8.6 0 12Z"/><path d="M6 24c3.4 2.6 8.6 2.6 12 0-3.4-2.6-8.6-2.6-12 0Z"/><path d="M42 24c-3.4 2.6-8.6 2.6-12 0 3.4-2.6 8.6-2.6 12 0Z"/><path d="M11.3 11.3c4 1.3 7.7 5 9 9-4-1.3-7.7-5-9-9Z"/><path d="M36.7 36.7c-4-1.3-7.7-5-9-9 4 1.3 7.7 5 9 9Z"/><path d="M36.7 11.3c-1.3 4-5 7.7-9 9 1.3-4 5-7.7 9-9Z"/><path d="M11.3 36.7c1.3-4 5-7.7 9-9-1.3 4-5 7.7-9 9Z"/></g><circle cx="24" cy="24" r="3" fill="currentColor"/></svg><span class="l"></span></div>
+
 <!-- PANCHANGAM -->
 <section class="section" id="panchangam">
   <div class="section-head reveal">
@@ -1452,14 +1235,28 @@ html[data-lang="ta"] .foot-quote{font-family:var(--font-tamil);font-style:normal
   </div>
 </section>
 
+<div class="om-divider reveal" aria-hidden="true"><span class="l"></span><svg class="orn" viewBox="0 0 48 48" fill="none"><circle class="ring" cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1"/><g class="pet" fill="currentColor"><path d="M24 6c2.6 3.4 2.6 8.6 0 12-2.6-3.4-2.6-8.6 0-12Z"/><path d="M24 42c2.6-3.4 2.6-8.6 0-12-2.6 3.4-2.6 8.6 0 12Z"/><path d="M6 24c3.4 2.6 8.6 2.6 12 0-3.4-2.6-8.6-2.6-12 0Z"/><path d="M42 24c-3.4 2.6-8.6 2.6-12 0 3.4-2.6 8.6-2.6 12 0Z"/><path d="M11.3 11.3c4 1.3 7.7 5 9 9-4-1.3-7.7-5-9-9Z"/><path d="M36.7 36.7c-4-1.3-7.7-5-9-9 4 1.3 7.7 5 9 9Z"/><path d="M36.7 11.3c-1.3 4-5 7.7-9 9 1.3-4 5-7.7 9-9Z"/><path d="M11.3 36.7c1.3-4 5-7.7 9-9-1.3 4-5 7.7-9 9Z"/></g><circle cx="24" cy="24" r="3" fill="currentColor"/></svg><span class="l"></span></div>
+
 <!-- MY RASI (single) -->
 <section class="section" id="zodiac">
   <div class="section-head reveal">
     <div class="eyebrow" data-en="✦ The Wheel" data-ta="✦ ராசிச் சக்கரம்">✦ The Wheel</div>
     <h2 class="section-title" data-en-html="My <em>Rasi</em>" data-ta-html="எனது <em>ராசி</em>">My <em>Rasi</em></h2>
-    <p class="section-sub" data-en="The Moon sits in Leo — சிம்மம். This is the seat of the chart's emotional weather." data-ta="சந்திரன் சிம்ம ராசியில் அமர்ந்திருக்கிறான் — இது ஜாதகத்தின் உணர்வு நிலை.">The Moon sits in Leo — சிம்மம். This is the seat of the chart's emotional weather.</p>
+    <p class="section-sub" data-en="The birth chart read in the traditional South Indian style — Rasi, Amsam (Navamsam) and Chandira Navamsam, with the twelve rasis held in their fixed houses." data-ta="பிறப்பு ஜாதகம் தென்னிந்திய முறையில் — ராசி, அம்சம் (நவாம்சம்), சந்திர நவாம்சம் — பன்னிரண்டு ராசிகள் நிலையான இடங்களில்.">The birth chart read in the traditional South Indian style — Rasi, Amsam (Navamsam) and Chandira Navamsam, with the twelve rasis held in their fixed houses.</p>
   </div>
-  <div class="single-rasi-wrap reveal">
+  <div class="charts-grid reveal">
+    <div class="chart-block" data-chart="rasi">
+      <div class="kattam-caption" data-en="Rasi · ராசி" data-ta="ராசி கட்டம்">Rasi · ராசி</div>
+      <div class="kattam" data-center-en="Rasi" data-center-ta="ராசி"></div>
+    </div>
+    <div class="chart-block" data-chart="amsam">
+      <div class="kattam-caption" data-en="Amsam · Navamsam" data-ta="அம்சம் · நவாம்சம்">Amsam · Navamsam</div>
+      <div class="kattam" data-center-en="Amsam" data-center-ta="அம்சம்"></div>
+    </div>
+    <div class="chart-block" data-chart="navamsam">
+      <div class="kattam-caption" data-en="Chandira Navamsam · சந்திர நவாம்சம்" data-ta="சந்திர நவாம்சம்">Chandira Navamsam · சந்திர நவாம்சம்</div>
+      <div class="kattam" data-center-en="Chandira Navamsam" data-center-ta="சந்திர நவாம்சம்"></div>
+    </div>
     <div class="single-rasi">
       <div class="rasi-corner top-left">✦</div>
       <div class="rasi-corner top-right">✦</div>
@@ -1492,6 +1289,8 @@ html[data-lang="ta"] .foot-quote{font-family:var(--font-tamil);font-style:normal
       </div>
     </div>
   </div>
+  <div class="planet-key reveal" id="planetKey"></div>
+  <p class="chart-foot reveal" style="max-width:620px;margin-left:auto;margin-right:auto;margin-top:1.4rem" data-en="✦ Transcribed from the handwritten jathagam. Please verify each placement." data-ta="✦ கையெழுத்து ஜாதகத்திலிருந்து பெயர்க்கப்பட்டது. ஒவ்வொரு நிலையையும் சரிபார்க்கவும்.">✦ Transcribed from the handwritten jathagam. Please verify each placement.</p>
 </section>
 
 <!-- SHLOKA -->
@@ -1536,9 +1335,9 @@ html[data-lang="ta"] .foot-quote{font-family:var(--font-tamil);font-style:normal
     <h2 data-en-html="Get in <em>Touch</em>" data-ta-html="<em>தொடர்பு</em> கொள்ள">Get in <em>Touch</em></h2>
     <p class="sub" data-en="If your family is considering an alliance and would like to know more, please reach out through any of the channels below. Elders and parents most welcome." data-ta="உங்கள் குடும்பம் திருமண நட்பை யோசிக்கிறது என்றால், கீழே உள்ள எந்த வழியின் மூலமாகவும் தொடர்பு கொள்ளலாம். பெற்றோர்களும் பெரியவர்களும் மிகவும் வரவேற்கப்படுகிறார்கள்.">If your family is considering an alliance and would like to know more, please reach out through any of the channels below. Elders and parents most welcome.</p>
     <div class="contact-card-grid reveal-stagger">
-      <a href="/cdn-cgi/l/email-protection#ff969e9295908b97969a8c97bf98929e9693d19c9092" class="contact-card">
+      <a href="/cdn-cgi/l/email-protection#2d444c404742594544485e456d4a404c4441034e4240" class="contact-card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
-        <div><div class="label" data-en="Email" data-ta="மின்னஞ்சல்">Email</div><div class="val mono"><span class="__cf_email__" data-cfemail="c4ada5a9aeabb0acada1b7ac84a3a9a5ada8eaa7aba9">[email&#160;protected]</span></div></div>
+        <div><div class="label" data-en="Email" data-ta="மின்னஞ்சல்">Email</div><div class="val mono"><span class="__cf_email__" data-cfemail="3f565e5255504b57565a4c577f58525e5653115c5052">[email&#160;protected]</span></div></div>
       </a>
       <a href="tel:+916380900348" class="contact-card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
@@ -1581,7 +1380,7 @@ html[data-lang="ta"] .foot-quote{font-family:var(--font-tamil);font-style:normal
     <div class="foot-right">
       <a class="soc" href="tel:+916380900348" aria-label="Phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
       <a class="soc" href="https://www.linkedin.com/in/jothiesh-7-joe/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19v4.81h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
-      <a class="soc" href="/cdn-cgi/l/email-protection#cba2aaa6a1a4bfa3a2aeb8a38baca6aaa2a7e5a8a4a6" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></a>
+      <a class="soc" href="/cdn-cgi/l/email-protection#7811191512170c10111d0b10381f15191114561b1715" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></a>
       <a class="soc" href="http://jothiesh.click" target="_blank" rel="noopener" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
       <a class="soc" href="http://jothiesh.click/jothiesh-portfolio" target="_blank" rel="noopener" aria-label="Portfolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg></a>
     </div>
@@ -1591,6 +1390,85 @@ html[data-lang="ta"] .foot-quote{font-family:var(--font-tamil);font-style:normal
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── Rasi / Amsam / Chandira Navamsam renderer ──
+   Transcribed from the handwritten jathagam. Edit the placement maps below
+   to correct any planet: keys are rasi names, values are planet codes. */
+(function(){
+  // Rasis in South-Indian fixed ring order (drawn around the centre)
+  var RASIS=[
+    {k:"meenam",ta:"மீனம்",en:"Pisces",g:"♓"},
+    {k:"mesham",ta:"மேஷம்",en:"Aries",g:"♈"},
+    {k:"rishabam",ta:"ரிஷபம்",en:"Taurus",g:"♉"},
+    {k:"mithunam",ta:"மிதுனம்",en:"Gemini",g:"♊"},
+    {k:"kumbham",ta:"கும்பம்",en:"Aquarius",g:"♒"},
+    {k:"kadagam",ta:"கடகம்",en:"Cancer",g:"♋"},
+    {k:"makaram",ta:"மகரம்",en:"Capricorn",g:"♑"},
+    {k:"simmam",ta:"சிம்மம்",en:"Leo",g:"♌"},
+    {k:"dhanusu",ta:"தனுசு",en:"Sagittarius",g:"♐"},
+    {k:"vrichigam",ta:"விருச்சிகம்",en:"Scorpio",g:"♏"},
+    {k:"thulam",ta:"துலாம்",en:"Libra",g:"♎"},
+    {k:"kanni",ta:"கன்னி",en:"Virgo",g:"♍"}
+  ];
+  var P={
+    la:{en:"La",ta:"ல",fen:"Lagnam",fta:"லக்னம்",cls:"lagnam"},
+    su:{en:"Su",ta:"சூ",fen:"Sun",fta:"சூரியன்"},
+    ch:{en:"Mo",ta:"சந்",fen:"Moon",fta:"சந்திரன்",cls:"moon"},
+    ma:{en:"Ma",ta:"செ",fen:"Mars",fta:"செவ்வாய்"},
+    bu:{en:"Me",ta:"பு",fen:"Mercury",fta:"புதன்"},
+    gu:{en:"Ju",ta:"கு",fen:"Jupiter",fta:"குரு"},
+    ve:{en:"Ve",ta:"சுக்",fen:"Venus",fta:"சுக்ரன்"},
+    sa:{en:"Sa",ta:"ச",fen:"Saturn",fta:"சனி"},
+    ra:{en:"Ra",ta:"ரா",fen:"Rahu",fta:"ராகு"},
+    ke:{en:"Ke",ta:"கே",fen:"Ketu",fta:"கேது"}
+  };
+  // ── PLACEMENTS (edit to match the handwritten chart) ──
+  var CHARTS={
+    rasi:{meenam:["su","bu"],mesham:["gu"],kadagam:["ra"],simmam:["ch","ma"],makaram:["la","ke"],vrichigam:["ve"],kanni:["sa"]},
+    amsam:{mesham:["ra"],thulam:["ke"],makaram:["la"],simmam:["su"],kanni:["gu","bu"],rishabam:["ve"],mithunam:["ma"],dhanusu:["sa"],kumbham:["ch"]},
+    navamsam:{kadagam:["ch"],makaram:["la"],mesham:["su","ke"],thulam:["ra"],kanni:["ma"],simmam:["gu"],vrichigam:["ve"],dhanusu:["sa"],mithunam:["bu"]}
+  };
+
+  function cellHTML(r,planets){
+    var occ=planets&&planets.length;
+    var hasLa=planets&&planets.indexOf("la")>-1;
+    var pills=(planets||[]).map(function(code){
+      var p=P[code];if(!p)return"";
+      return '<span class="pl '+(p.cls||"")+'" data-en="'+p.en+'" data-ta="'+p.ta+'">'+p.en+'</span>';
+    }).join("");
+    return '<div class="kattam-cell'+(occ?" has-planet":"")+(hasLa?" has-lagnam":"")+'">'
+      +'<span class="gly">'+r.g+'</span>'
+      +'<span class="rn" data-en="'+cap(r.k)+'" data-ta="'+r.ta+'">'+cap(r.k)+'</span>'
+      +'<span class="re">'+r.en+'</span>'
+      +(occ?'<div class="planets">'+pills+'</div>':'')
+      +'</div>';
+  }
+  function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+
+  document.querySelectorAll(".charts-grid .kattam").forEach(function(grid){
+    var chart=grid.closest("[data-chart]").getAttribute("data-chart");
+    var placements=CHARTS[chart]||{};
+    var html='<div class="kattam-center">'
+      +'<span class="om">ஓம்</span>'
+      +'<span class="ttl" data-en="'+grid.getAttribute("data-center-en")+'" data-ta="'+grid.getAttribute("data-center-ta")+'">'+grid.getAttribute("data-center-en")+'</span>'
+      +'<span class="sttl" data-en="South Indian" data-ta="தென்னிந்திய முறை">South Indian</span>'
+      +'</div>';
+    RASIS.forEach(function(r){ html+=cellHTML(r,placements[r.k]); });
+    grid.innerHTML=html;
+  });
+
+  // Planet key / legend
+  var key=document.getElementById("planetKey");
+  if(key){
+    var order=["la","su","ch","ma","bu","gu","ve","sa","ra","ke"];
+    key.innerHTML=order.map(function(c){
+      var p=P[c];
+      return '<span class="pk"><b>'+p.en+'</b><span data-en="'+p.fen+'" data-ta="'+p.fta+'">'+p.fen+'</span></span>';
+    }).join("");
+  }
+})();
+</script>
+
+<script>
 (function(){
   const html=document.documentElement;
   const btnEn=document.getElementById("btn-en");
@@ -1626,9 +1504,9 @@ html[data-lang="ta"] .foot-quote{font-family:var(--font-tamil);font-style:normal
   });
 
   // --- Init ---
-  let savedLang="en", savedTheme="dark";
+  let savedLang="en", savedTheme="light";
   try{savedLang=localStorage.getItem("jathagam-lang")||"en"}catch(e){}
-  try{savedTheme=localStorage.getItem("jathagam-theme")||"dark"}catch(e){}
+  try{savedTheme=localStorage.getItem("jathagam-theme")||"light"}catch(e){}
   setTheme(savedTheme);
   setLang(savedLang);
 
